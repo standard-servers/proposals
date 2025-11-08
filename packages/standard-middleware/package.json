@@ -29,5 +29,8 @@
 	},
 	"devDependencies": {
 		"@robino/tsconfig": "^1.1.0"
+	},
+	"dependencies": {
+		"standard-context": "^0.0.1"
 	}
 }

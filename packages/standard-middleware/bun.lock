@@ -3,6 +3,9 @@
   "workspaces": {
     "": {
       "name": "standard-middleware",
+      "dependencies": {
+        "standard-context": "^0.0.1",
+      },
       "devDependencies": {
         "@robino/tsconfig": "^1.1.0",
       },
@@ -12,6 +15,8 @@
     "@robino/tsconfig": ["@robino/tsconfig@1.1.0", "", { "dependencies": { "@types/node": "^24.0.3" }, "peerDependencies": { "typescript": ">=5.5.0" } }, "sha512-ZIJN02GPk+5J3plRQLIJzfRGHrXJSrnxzWFO5ElIp+ni3FC5gNov0djiKkveMnKidXORsFfd9NPnrU4VUoa+PA=="],
 
     "@types/node": ["@types/node@24.10.0", "", { "dependencies": { "undici-types": "~7.16.0" } }, "sha512-qzQZRBqkFsYyaSWXuEHc2WR9c0a0CXwiE5FWUvn7ZM+vdy1uZLfCunD38UzhuB7YN/J11ndbDBcTmOdxJo9Q7A=="],
+
+    "standard-context": ["standard-context@0.0.1", "", {}, "sha512-Cj5Sl2qvTk+LobQPwi20XWoVRS1/4irgtmtRmvVn3SbKVyoYNkrPlFcmslFjv/DCJCssTXghFOw3h0QY6zfzoA=="],
 
     "typescript": ["typescript@5.9.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw=="],
 

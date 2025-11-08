@@ -2,13 +2,10 @@
  * This is an example of a server framework library code.
  */
 
-import type {
-	StandardContext,
-	StandardMiddleware,
-	StandardNext,
-} from "../index.js";
+import type { StandardMiddleware, StandardNext } from "../index.js";
+import type { StandardContext } from "standard-context";
 
-type Next = StandardNext<void>;
+type Next = StandardNext;
 
 type Middleware = StandardMiddleware<Context, Next, void>;
 

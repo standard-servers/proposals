@@ -1,38 +1,29 @@
-export type StandardRequest<R = {}> = Request & {
-	"~standard"?: {
-		/**
-		 * @param promise to resolve before closing the connection.
-		 */
-		waitUntil?: (promise: Promise<void>) => {};
+import type { StandardContext } from "standard-context";
 
-		/** JavaScript runtime. */
-		runtime?: R;
-	};
-};
+/**
+ * Dispatch the next middleware in the stack.
+ *
+ * @template Args Type of the optional arguments.
+ * @template R Type of the resolved value.
+ * @param args Optional arguments passed into `next`.
+ * @returns Promise that resolves when the next middleware has executed.
+ */
+export type StandardNext<Args extends unknown[] = [], T = void> = (
+	...args: Args
+) => Promise<T>;
 
-export type StandardContext<T = {}> = T & {
-	"~standard": {
-		/** Incoming web `Request` */
-		req: StandardRequest;
-
-		res: {
-			/** Response body */
-			body?: BodyInit | null;
-
-			/** Response status */
-			status?: number;
-
-			/** Response headers */
-			headers?: Headers;
-		};
-	};
-};
-
-/** Dispatch the next middleware in the stack. */
-export type StandardNext<T = void> = () => Promise<T>;
-
+/**
+ * Standard middleware.
+ *
+ * @template C Type of the context.
+ * @template N Type of the `next` function.
+ * @template R Type of the resolved value.
+ * @param context Context of the current request.
+ * @param next `next` function that calls the next middleware.
+ * @returns Resolved value.
+ */
 export type StandardMiddleware<
 	C extends StandardContext = StandardContext,
 	N extends StandardNext = StandardNext,
-	R = any,
+	R = void,
 > = (context: C, next: N) => Promise<R>;
