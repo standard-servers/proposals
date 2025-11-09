@@ -1,4 +1,6 @@
-# Standard Fetch API Based Middleware
+# standard-middleware
+
+An extension of [`standard-context`](https://github.com/h3js/standard-context) outlining `StandardMiddleware` and type.
 
 Backend server JavaScript frameworks are standardizing around the Fetch API. Each framework provides users with a `context` or `event` object that is passed through `Middleware` (or "handlers") for the user to access during the request.
 

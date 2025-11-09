@@ -1,19 +1,21 @@
 import type { StandardContext } from "standard-context";
 
 /**
- * Dispatch the next middleware in the stack.
+ * The Standard Next type.
+ *
+ * Any async function that runs the next middleware in the stack.
  *
  * @template Args Type of the optional arguments.
  * @template R Type of the resolved value.
  * @param args Optional arguments passed into `next`.
  * @returns Promise that resolves when the next middleware has executed.
  */
-export type StandardNext<Args extends unknown[] = [], T = void> = (
+export type StandardNext<Args extends unknown[] = [], T = unknown> = (
 	...args: Args
 ) => Promise<T>;
 
 /**
- * Standard middleware.
+ * The Standard Middleware type.
  *
  * @template C Type of the context.
  * @template N Type of the `next` function.

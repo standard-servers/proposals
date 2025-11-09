@@ -1,7 +1,7 @@
 {
 	"name": "standard-middleware",
-	"description": "Standard Middleware for JavaScript Servers.",
-	"version": "0.0.1",
+	"description": "Standard Middleware for JavaScript Servers",
+	"version": "0.0.2",
 	"license": "MIT",
 	"type": "module",
 	"types": "./dist/index.d.ts",
@@ -35,6 +35,6 @@
 		"typescript": "^5.9.3"
 	},
 	"dependencies": {
-		"standard-context": "^0.0.1"
+		"standard-context": "^0.0.3"
 	}
 }

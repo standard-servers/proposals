@@ -1,10 +1,11 @@
 {
   "lockfileVersion": 1,
+  "configVersion": 0,
   "workspaces": {
     "": {
       "name": "standard-middleware",
       "dependencies": {
-        "standard-context": "^0.0.1",
+        "standard-context": "^0.0.3",
       },
       "devDependencies": {
         "@robino/prettier": "^2.0.2",
@@ -79,7 +80,7 @@
 
     "source-map-js": ["source-map-js@1.2.1", "", {}, "sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA=="],
 
-    "standard-context": ["standard-context@0.0.1", "", {}, "sha512-Cj5Sl2qvTk+LobQPwi20XWoVRS1/4irgtmtRmvVn3SbKVyoYNkrPlFcmslFjv/DCJCssTXghFOw3h0QY6zfzoA=="],
+    "standard-context": ["standard-context@0.0.3", "", {}, "sha512-agN2+rKP1Pvl6DfSFebFOueEyCQG6CgvURCmoTU0gc/q/vVYtxf/uK46NsG9Qk+v+Ll6w5Jt20rQxNqb81lEjA=="],
 
     "typescript": ["typescript@5.9.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw=="],
 

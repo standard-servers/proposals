@@ -6,7 +6,7 @@ import { standardLogger } from "./middleware.js";
 
 const app = new App();
 
-app.use(standardLogger, async (c, _next) => {
+app.use(standardLogger, async (c) => {
 	c.body = c.req.url;
 	c.status = 200;
 });

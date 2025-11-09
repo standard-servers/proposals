@@ -1,10 +1,11 @@
 /**
- * This is an example of a server framework library code.
+ * This is an example of a vendor server framework code.
  */
 import type { StandardMiddleware, StandardNext } from "../index.js";
 import type { StandardContext } from "standard-context";
 
-type Next = StandardNext;
+// vendor types
+type Next = StandardNext<[], void>;
 
 type Middleware = StandardMiddleware<Context, Next, void>;
 
@@ -13,13 +14,14 @@ class Context implements StandardContext {
 	body: BodyInit | null = null;
 	status?: number;
 	headers = new Headers();
-	"~standard": StandardContext["~standard"];
+	"~standard": StandardContext.Props;
 
 	constructor(req: Request) {
 		this.req = req;
 		const context = this;
 
 		context["~standard"] = {
+			vendor: "example",
 			req: context.req,
 			res: {
 				get body() {
