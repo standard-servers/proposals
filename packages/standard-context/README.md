@@ -4,6 +4,18 @@ Modern server JavaScript frameworks have standardized around the Fetch API. Each
 
 Inspired by [`standard-schema`](https://standardschema.dev), this proposes a `StandardContext` type to allow library authors to write utilities (like [H3 Utils](https://h3.dev/utils)) that run on any framework that implements the type.
 
+## Framework context/event examples
+
+- H3: https://h3.dev/guide/api/h3event
+- Hono: https://hono.dev/docs/api/context
+- Elysia: https://elysiajs.com/essential/handler.html#context
+- SvelteKit: https://svelte.dev/docs/kit/@sveltejs-kit#RequestEvent
+- Remix v3: https://github.com/remix-run/remix/tree/main/packages/fetch-router#middleware-and-route-handlers
+
+## Proposed Types
+
+[See the proposed types here](./src/index.ts)
+
 ## `StandardContext`
 
 Just like `standard-schema`, the type adds an additional `~standard` property to the context to provide library authors standardized way to read values from the `Request` object, and set values to use to build the `Response`.
