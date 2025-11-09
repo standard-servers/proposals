@@ -1,7 +1,7 @@
 {
 	"name": "standard-context",
 	"description": "Standard Context for JavaScript Servers",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"license": "MIT",
 	"type": "module",
 	"types": "./dist/index.d.ts",
