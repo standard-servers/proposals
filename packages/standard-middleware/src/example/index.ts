@@ -1,7 +1,6 @@
 /**
  * Example of end user code.
  */
-
 import { App } from "./app.js";
 import { standardLogger } from "./middleware.js";
 

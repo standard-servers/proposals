@@ -1,7 +1,6 @@
 /**
  * This is an example of a server framework library code.
  */
-
 import type { StandardMiddleware, StandardNext } from "../index.js";
 import type { StandardContext } from "standard-context";
 

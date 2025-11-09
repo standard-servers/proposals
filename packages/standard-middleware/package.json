@@ -25,10 +25,14 @@
 		"check": "tsc --noEmit",
 		"dev": "tsc --watch",
 		"build": "tsc",
+		"format": "prettier --write .",
 		"example": "bun run build && bun dist/example"
 	},
 	"devDependencies": {
-		"@robino/tsconfig": "^1.1.0"
+		"@robino/prettier": "^2.0.2",
+		"@robino/tsconfig": "^1.1.0",
+		"prettier": "^3.6.2",
+		"typescript": "^5.9.3"
 	},
 	"dependencies": {
 		"standard-context": "^0.0.1"
