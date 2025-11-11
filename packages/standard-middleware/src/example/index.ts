@@ -2,11 +2,11 @@
  * Example of end user code.
  */
 import { App } from "./app.js";
-import { standardLogger } from "./middleware.js";
+import * as standard from "./middleware.js";
 
 const app = new App();
 
-app.use(standardLogger, async (c) => {
+app.use(standard.logger, standard.addVendorHeader, async (c) => {
 	c.body = c.req.url;
 	c.status = 200;
 });
