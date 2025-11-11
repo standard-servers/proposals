@@ -20,11 +20,9 @@ Inspired by [`standard-schema`](https://standardschema.dev), this proposes a `St
 
 Just like `standard-schema`, the type adds an additional `~standard` property to the context to provide library authors standardized way to read values from the `Request` object, and set values to use to build the `Response`.
 
+Library authors can also add additional information such as the `runtime` or a `waitUntil` method.
+
 This allows vendor server framework libraries to adopt the type without any breaking changes.
-
-## `StandardRequest`
-
-`StandardContext.req` is a `StandardRequest`, this is an _optional_ superset of the web `Request` where library authors can add additional information such as the `runtime` or a `waitUntil` method.
 
 ## `PreparedResponse`
 
