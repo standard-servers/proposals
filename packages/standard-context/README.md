@@ -20,7 +20,7 @@ Inspired by [`standard-schema`](https://standardschema.dev), this proposes a `St
 /**
  * The Standard Context type.
  *
- * @template C Type of the vendor defined `context` or `event`.
+ * @template C Type of the framework defined `context` or `event`.
  * @template R Type of the JavaScript runtime.
  * @template W Return type of `waitUntil`.
  */
@@ -37,8 +37,8 @@ export declare namespace StandardContext {
 	 * @template W Return type of `waitUntil`.
 	 */
 	export interface Props<R = unknown, W = unknown> {
-		/** The vendor name of the server framework library. */
-		readonly vendor: string;
+		/** The name of the server framework. */
+		readonly framework: string;
 		/** Incoming web `Request`. */
 		readonly req: Request;
 		/** Prepared response modifiers. */
@@ -81,7 +81,7 @@ Just like `standard-schema`, the type adds an additional `~standard` property to
 
 Library authors can also add additional information such as the `runtime` or a `waitUntil` method.
 
-This allows vendor server framework libraries to adopt the type without any breaking changes.
+This allows server frameworks to adopt the type without any breaking changes.
 
 ## `PreparedResponse`
 

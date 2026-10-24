@@ -1,7 +1,7 @@
 /**
  * The Standard Context type.
  *
- * @template C Type of the vendor defined `context` or `event`.
+ * @template C Type of the framework defined `context` or `event`.
  * @template R Type of the JavaScript runtime.
  * @template W Return type of `waitUntil`.
  */
@@ -18,8 +18,8 @@ export declare namespace StandardContext {
 	 * @template W Return type of `waitUntil`.
 	 */
 	export interface Props<R = unknown, W = unknown> {
-		/** The vendor name of the server framework library. */
-		readonly vendor: string;
+		/** The name of the server framework. */
+		readonly framework: string;
 		/** Incoming web `Request`. */
 		readonly req: Request;
 		/** Prepared response modifiers. */

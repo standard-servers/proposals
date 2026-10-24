@@ -5,8 +5,8 @@
 ## Layout
 
 - `src/index.ts` — the entire public API (types only, no runtime code):
-  - `StandardContext<C, R, W>` — vendor context `C` intersected with `{ readonly "~standard": StandardContext.Props<R, W> }`.
-  - `StandardContext.Props` — `vendor`, `req: Request`, `res: PreparedResponse`, optional `runtime?: R`, optional `waitUntil?`.
+  - `StandardContext<C, R, W>` — framework context `C` intersected with `{ readonly "~standard": StandardContext.Props<R, W> }`.
+  - `StandardContext.Props` — `framework`, `req: Request`, `res: PreparedResponse`, optional `runtime?: R`, optional `waitUntil?`.
   - `StandardContext.PreparedResponse` — mutable `body`, `status`, `headers` used to build the final `Response`.
 - `README.md` — rationale and docs. The `<!-- types -->` section is generated from `src/index.ts` by `scripts/readme.ts`; don't edit it by hand.
 - `dist/` — build output (`index.mjs` + `index.d.mts`, gitignored, published).
@@ -23,7 +23,7 @@ Package manager is **pnpm** (`pnpm-lock.yaml`).
 
 ## Guidelines
 
-- This is a spec: keep the surface minimal and **non-breaking for adopting frameworks**. Everything lives under `~standard`; never require changes to a vendor's existing context shape.
+- This is a spec: keep the surface minimal and **non-breaking for adopting frameworks**. Everything lives under `~standard`; never require changes to a framework's existing context shape.
 - Prefer `readonly` for spec properties; only `PreparedResponse` fields are mutable.
 - Use only Web-standard types (`Request`, `Headers`, `BodyInit`) — no runtime- or framework-specific imports. Runtime specifics go through the `R` generic.
 - Every exported type/property gets a JSDoc comment; document generics with `@template`.
