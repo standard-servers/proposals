@@ -5,7 +5,7 @@ import type { StandardContext } from "standard-context";
 
 const addStandard: MiddlewareHandler = (c, next) => {
 	const props: StandardContext.Props<undefined, void> = {
-		vendor: "hono",
+		framework: "hono",
 		req: c.req.raw,
 		get waitUntil() {
 			try {
@@ -39,10 +39,10 @@ const addStandard: MiddlewareHandler = (c, next) => {
 
 const app = new Hono();
 
-app.use(addStandard, standard.logger, standard.addVendorHeader);
+app.use(addStandard, standard.logger, standard.addFrameworkHeader);
 
 app.get("/", addStandard, (c) => {
-	console.log(c.res.headers.get("x-vendor"));
+	console.log(c.res.headers.get("x-framework"));
 	return c.text(c.req.path);
 });
 

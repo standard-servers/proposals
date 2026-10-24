@@ -4,7 +4,7 @@ import type { StandardContext } from "standard-context";
 
 const addStandard: Middleware = (c, next) => {
 	const props: StandardContext.Props<undefined> = {
-		vendor: "remix",
+		framework: "remix",
 		req: c.request,
 		res: {
 			// this would need to be implemented internally
@@ -18,7 +18,7 @@ const addStandard: Middleware = (c, next) => {
 };
 
 const router = createRouter({
-	middleware: [addStandard, standard.logger, standard.addVendorHeader],
+	middleware: [addStandard, standard.logger, standard.addFrameworkHeader],
 });
 
 router.get("/", (c) => {

@@ -4,7 +4,7 @@ import type { StandardContext } from "standard-context";
 
 const addStandard: Middleware = (c, next) => {
 	const props: StandardContext.Props<undefined, void> = {
-		vendor: "h3",
+		framework: "h3",
 		req: c.req,
 		waitUntil: c.waitUntil,
 		res: c.res,
@@ -19,10 +19,10 @@ const app = new H3();
 
 app.use(addStandard);
 app.use(standard.logger);
-app.use(standard.addVendorHeader);
+app.use(standard.addFrameworkHeader);
 
 app.get("/", (c) => {
-	console.log(c.res.headers.get("x-vendor"));
+	console.log(c.res.headers.get("x-framework"));
 	return c.url.pathname;
 });
 

@@ -9,8 +9,8 @@ export const logger: StandardMiddleware = async (c, next) => {
 	console.log(c["~standard"].res.status ?? 200, c["~standard"].req.method, c["~standard"].req.url);
 };
 
-export const addVendorHeader: StandardMiddleware = async (c, next) => {
-	c["~standard"].res.headers?.set("x-vendor", c["~standard"].vendor);
+export const addFrameworkHeader: StandardMiddleware = async (c, next) => {
+	c["~standard"].res.headers?.set("x-framework", c["~standard"].framework);
 
 	await next();
 };
