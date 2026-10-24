@@ -1,37 +1,31 @@
 {
 	"name": "standard-context",
-	"description": "Standard Context for JavaScript Servers",
 	"version": "0.0.4",
+	"description": "Standard Context for JavaScript Servers",
 	"license": "MIT",
+	"files": [
+		"dist"
+	],
 	"type": "module",
-	"types": "./dist/index.d.ts",
-	"main": "./dist/index.js",
+	"main": "./dist/index.mjs",
+	"types": "./dist/index.d.mts",
 	"exports": {
-		"./package.json": {
-			"default": "./package.json"
-		},
+		"./package.json": "./package.json",
 		".": {
-			"types": "./dist/index.d.ts",
-			"default": "./dist/index.js"
+			"types": "./dist/index.d.mts",
+			"default": "./dist/index.mjs"
 		}
 	},
-	"files": [
-		"./dist/index.js",
-		"./dist/index.d.ts",
-		"./dist/index.d.ts.map",
-		"./src/index.ts"
-	],
 	"scripts": {
+		"build": "obuild",
 		"check": "tsc --noEmit",
-		"dev": "tsc --watch",
-		"build": "tsc",
-		"format": "prettier --write .",
-		"example": "bun run build && bun dist/example"
+		"format": "pnpm readme && oxfmt",
+		"readme": "node scripts/readme.ts"
 	},
 	"devDependencies": {
-		"@robino/prettier": "^2.0.2",
-		"@robino/tsconfig": "^1.1.0",
-		"prettier": "^3.6.2",
+		"obuild": "^0.4.45",
+		"oxfmt": "^0.74.0",
 		"typescript": "^5.9.3"
-	}
+	},
+	"packageManager": "pnpm@12.15.0"
 }
