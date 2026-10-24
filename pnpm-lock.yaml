@@ -176,7 +176,31 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
 
+  packages/standard-context: {}
+
+  packages/standard-middleware:
+    dependencies:
+      standard-context:
+        specifier: workspace:^
+        version: link:../standard-context
+    devDependencies:
+      '@remix-run/fetch-router':
+        specifier: ^0.8.0
+        version: 0.8.0(@remix-run/form-data-parser@0.12.0)(@remix-run/headers@0.14.0)(@remix-run/html-template@0.2.0)(@remix-run/route-pattern@0.14.0)
+      elysia:
+        specifier: ^1.4.15
+        version: 1.4.30(@sinclair/typebox@0.34.52)(exact-mirror@1.2.6)(file-type@22.2.0)(openapi-types@12.1.3)(typescript@5.9.3)
+      h3:
+        specifier: ^2.0.1-rc.5
+        version: 2.0.8
+      hono:
+        specifier: ^4.10.5
+        version: 4.13.13
+
 packages:
+
+  '@borewit/text-codec@0.2.2':
+    resolution: {integrity: sha512-DDaRehssg1aNrH4+2hnj1B7vnUGEjU6OIlyRdkMd0aUdIUvKXrJfXsy8LVtXAy7DRvYVluWbMspsRhz2lcW0mQ==}
 
   '@jridgewell/sourcemap-codec@1.6.0':
     resolution: {integrity: sha512-T7jf+5zgsZHwNJ4lvQ7/aezbyk0nNX+zJVWpmHA7VYsEx7a7qr5Rg5IbtJFqkgze5Y2sruq1RUY8Q837Od7iFw==}
@@ -306,6 +330,29 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@remix-run/fetch-router@0.8.0':
+    resolution: {integrity: sha512-ugvauNoGxZBGw5F+3IcohAbrZ6dMM8VdWVgi12UVeHg2843IjkKtGv2dHCkHPMZvydJZQlYWDGd/NRxDSChG3w==}
+    peerDependencies:
+      '@remix-run/form-data-parser': 0.12.0
+      '@remix-run/headers': 0.14.0
+      '@remix-run/html-template': 0.2.0
+      '@remix-run/route-pattern': 0.14.0
+
+  '@remix-run/form-data-parser@0.12.0':
+    resolution: {integrity: sha512-PSeHTVp1nDAA1yr8HUiU0dNkQ3jD4TlW6Crw0oV406YC0JskkJ9TyHC8BYKQzi8URFX12fHJD70W3RtvofKqvw==}
+
+  '@remix-run/headers@0.14.0':
+    resolution: {integrity: sha512-IibY6iTkBhzHXacQkJDENlzJPe3G5RDJgzV2utftnJl/sg2qKnxtepypQmfXA6d+BI5BkzrtAd+mx7QSVY1NRQ==}
+
+  '@remix-run/html-template@0.2.0':
+    resolution: {integrity: sha512-CwmFgbUroD2082lK6ALHCryqOxrn3FtMf7uf554fN8Zq5H9aDafPYWpEZ01GvpaKuPVlWwyojhqcs1nOOgLwpA==}
+
+  '@remix-run/multipart-parser@0.12.0':
+    resolution: {integrity: sha512-u/o4lKmIy/KuZGuQYMGhmr+BN7VKAt3G0ny8a1SBVlBXIBAtTOmDiI2WMZtyAv0VPbaIpT3OBTrRrKIfdDAE6w==}
+
+  '@remix-run/route-pattern@0.14.0':
+    resolution: {integrity: sha512-Wlq1LAsGZBJ5uEnUmxJDBQvpLKhay1mVvxmNl0oeKBOin6yWDB5YkJkSMAlYQi7mM/vVIDlqr183MiHi4SO7AA==}
+
   '@rolldown/binding-android-arm-eabi@1.2.15':
     resolution: {integrity: sha512-aLcgK9gIJ3YRvrrtfSBbRa27F5WrpiTaPulnFpsHPxpUHgFlSgnU4854MHwoRGEBhfRJDWCS2WQ7lIjskE9Olw==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -405,6 +452,16 @@ packages:
   '@rolldown/pluginutils@1.0.1':
     resolution: {integrity: sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw==}
 
+  '@sinclair/typebox@0.34.52':
+    resolution: {integrity: sha512-XiMQh7qqVlxZzcVD+kkGMNGMzcTrDMLWI7S4x7z1MkCkbDPrekpZXEUK0eZqZFMuHQg2a2DZOcDIh9o5v3Gonw==}
+
+  '@tokenizer/inflate@0.5.1':
+    resolution: {integrity: sha512-56U2O6fDLFtqokwWh597IdeUgtM7j+TT9tb1soybhgA6cy163gAcVmoQr8H4Ud/CkgCkViwcuLyqtn6wYqw59Q==}
+    engines: {node: '>=18'}
+
+  '@tokenizer/token@0.3.0':
+    resolution: {integrity: sha512-OvjF+z51L3ov0OyAU0duzsYuvO01PH7x4t6DJx+guahgTnBHkhJdG7soQeTSFLWN3efnHyibZ4Z8l2EuWwJN3A==}
+
   '@yuku-core/binding-android-arm64@0.19.0':
     resolution: {integrity: sha512-wdL2XmTiZixAOaHk9Z0JJZ8u9Qm8d333Zjpc6gaxXFX+UR5BlsfxZ7a2+2Rm71pamppsPYGUGFq2oVLbh6DISw==}
     cpu: [arm64]
@@ -498,6 +555,19 @@ packages:
     resolution: {integrity: sha512-5IKcdX0nnYavi6G7TtOhwkYzyjfJlatbjMjuLSfE2kYT5pMDOilZ4OvMhi637CcDICTmz3wARPoyhqyX1Y+XvA==}
     engines: {node: ^14.18.0 || >=16.10.0}
 
+  cookie@1.1.1:
+    resolution: {integrity: sha512-ei8Aos7ja0weRpFzJnEA9UHJ/7XQmqglbRwnf2ATjcB9Wq874VKH9kfjjirM6UhU2/E5fFYadylyhFldcqSidQ==}
+    engines: {node: '>=18'}
+
+  debug@4.4.3:
+    resolution: {integrity: sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==}
+    engines: {node: '>=6.0'}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+
   defu@6.1.7:
     resolution: {integrity: sha512-7z22QmUWiQ/2d0KkdYmANbRUVABpZ9SNYyH5vx6PZ+nE5bcC0l7uFvEfHlyld/HcGBFTL536ClDt3DEcSlEJAQ==}
 
@@ -513,8 +583,34 @@ packages:
       oxc-resolver:
         optional: true
 
+  elysia@1.4.30:
+    resolution: {integrity: sha512-S2qqV0CbM4faB1hQQ5IYoeYnAUinjHlzRduxaBc4OoNqh0GjOc8k6tt3hv5ozWcG6Svr6hugw6JL4zNke4jwfA==}
+    peerDependencies:
+      '@sinclair/typebox': '>= 0.34.0 < 1'
+      '@types/bun': '>= 1.2.0'
+      exact-mirror: '>= 0.0.9'
+      file-type: '>= 20.0.0'
+      openapi-types: '>= 12.0.0'
+      typescript: '>= 5.0.0'
+    peerDependenciesMeta:
+      '@types/bun':
+        optional: true
+      typescript:
+        optional: true
+
+  exact-mirror@1.2.6:
+    resolution: {integrity: sha512-EGx81nhFP1GE94coJsz94FLzdxWrnkNCJdfdX44rbd7pVcAotWzDlBJUC7yy1Ae7d7dYKpoTtZ1jCAIz2IVtfA==}
+    peerDependencies:
+      typebox: '>= 1.1.0'
+    peerDependenciesMeta:
+      typebox:
+        optional: true
+
   exsolve@1.1.3:
     resolution: {integrity: sha512-kuzL9zherLQoqDeQaS55AiiIg1kb4KYXaSusTtgZTPlvKP2gGCI82LNmBNh5RjDVUXIcmgx+/Mx7vPwRzBbhJA==}
+
+  fast-decode-uri-component@1.0.1:
+    resolution: {integrity: sha512-WKgKWg5eUxvRZGwW8FvfbaH7AXSh2cL+3j5fMGzUMCxWBJ3dV3a7Wz8y2f/uQ0e3B6WmodD3oS54jTQ9HVTIIg==}
 
   fdir@6.5.0:
     resolution: {integrity: sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==}
@@ -525,12 +621,42 @@ packages:
       picomatch:
         optional: true
 
+  file-type@22.2.0:
+    resolution: {integrity: sha512-XmEVJsRpQMVYC+sWFW+FKAVo2P7/lPctDdWH4UQ1r6oxhdrTobnowdM3z+ZJ93a4J8D3yDpxX0bEvRuFev0vUQ==}
+    engines: {node: '>=22'}
+
   get-tsconfig@5.0.0-beta.6:
     resolution: {integrity: sha512-X6fBC0pmImC70gvX2zm56go9hx0MyoGVdG0tUCkg/D+Xnh5TJsOZ7iDbOdI3PvmtrDxnu1YdDufpK2QJX1Meqw==}
     engines: {node: '>=20.20.0'}
 
+  h3@2.0.8:
+    resolution: {integrity: sha512-ENuKlF9kC6E6PrvY1PUyE0qkrnnPTIt2/v48uyEEfTVfgoiqBCE0uwwf++2XrWwT1gxjQBDLQ8PAsmZVniKvTw==}
+    engines: {node: '>=20.19.0'}
+    hasBin: true
+    peerDependencies:
+      crossws: ^0.4.12
+      ocache: '>=0.3.0'
+    peerDependenciesMeta:
+      crossws:
+        optional: true
+      ocache:
+        optional: true
+
+  hono@4.13.13:
+    resolution: {integrity: sha512-CQ46U0ZkAGmbT/4UxdzzGJpacP2IeKgY4a5/tOI9AABbpOMfK739wfDXmv1usCk+3RkKj1hQy4/fjhiwa2xlrA==}
+    engines: {node: '>=16.9.0'}
+
+  ieee754@1.2.1:
+    resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
+
   magic-string@1.4.3:
     resolution: {integrity: sha512-z12OxmaPGE0F4xlpGdjuAUckipLpQlTAuAmyGhNoD7ODpYUzvDfvtxUbjM/jwznyP178oju/KDdyi220wNJ0RQ==}
+
+  memoirist@0.4.0:
+    resolution: {integrity: sha512-zxTgA0mSYELa66DimuNQDvyLq36AwDlTuVRbnQtB+VuTcKWm5Qc4z3WkSpgsFWHNhexqkIooqpv4hdcqrX5Nmg==}
+
+  ms@2.1.3:
+    resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
   nf3@0.4.2:
     resolution: {integrity: sha512-6kPsyCzvzb8gnFQFzxuQc/hU9HWEMwn0v9j41Mv7LezeUmgS0qgsGjDbtdrOfqV+kkM8KpYS+aZ6Y0wkWzJzLQ==}
@@ -542,6 +668,9 @@ packages:
   obuild@0.4.45:
     resolution: {integrity: sha512-3+MjpKvxct9kZbRG5IU2nvYIlEkE+sYhREwz2og8Sq9zbNx1NfuEFH9qxbvRRpL1rEZafVTe6tpAZjB3G4KH0A==}
     hasBin: true
+
+  openapi-types@12.1.3:
+    resolution: {integrity: sha512-N4YtSYJqghVu4iek2ZUvcN/0aqH1kRDuNqzcycDxhOUpg7GdvLa2F3DgS6yBNhInhv2r/6I0Flkn7CqL8+nIcw==}
 
   oxfmt@0.74.0:
     resolution: {integrity: sha512-G4OP7FgwGYZR5ttRpCOOfJdyRsSyvtn34vSXnjDq6Oqed5Dufg5mB44mank+51nAdHOKuTJ0lj0mksY7L+N61A==}
@@ -602,6 +731,19 @@ packages:
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
 
+  rou3@1.0.0:
+    resolution: {integrity: sha512-ySeaQkSrua+ut9g+65I7FHqOFBaY8tV0FmccXItoq0q21se32Q3u4YiW7/RqXSosWgYJaaKwRHXy3BST9PeCNQ==}
+    engines: {node: '>=20.19.0'}
+
+  srvx@1.0.6:
+    resolution: {integrity: sha512-QeTKgAhk8OSsfeq60bl3wuVs9PmBftzmk7owBInA/F1YQne+TRw0UcPymNpURldAmx8hfmM2PNNGH/zgo3GpLA==}
+    engines: {node: '>=20.16.0'}
+    hasBin: true
+
+  strtok3@10.6.2:
+    resolution: {integrity: sha512-BkdixFFUt7r7LsX6aGNPVyYMLjW+M1USLlKPNbZsrZEmLFh5tGqhdfckKo6xgsZIJqdDD0CZGkeCJJwNWQIKQA==}
+    engines: {node: '>=18'}
+
   tinyglobby@0.2.17:
     resolution: {integrity: sha512-wXR/dYpcqKmfWpEdZjiKJOwCNFndD0DMnrW/cYjVGttEkBfVgcLFHoNrlj47mjOVic9yyNu65alsgF4NQyTa2g==}
     engines: {node: '>=12.0.0'}
@@ -610,10 +752,18 @@ packages:
     resolution: {integrity: sha512-jBrmx4lYmaC9k/mgPbylxs7kBUxHtD8256up+HjLaDFfXScKJQyil+SWXSvhAtT7XHo+yTVlpB81PGmHP8oLSQ==}
     engines: {node: ^20.0.0 || >=22.0.0}
 
+  token-types@6.1.2:
+    resolution: {integrity: sha512-dRXchy+C0IgK8WPC6xvCHFRIWYUbqqdEIKPaKo/AcTUNzwLTK6AH7RjdLWsEZcAN/TBdtfUw3PYEgPr5VPr6ww==}
+    engines: {node: '>=14.16'}
+
   typescript@5.9.3:
     resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
     engines: {node: '>=14.17'}
     hasBin: true
+
+  uint8array-extras@1.6.0:
+    resolution: {integrity: sha512-8iAasVS4wUx0gPLjH8Xtz2PeDzTSiy8QiLGu2DT3X5GU+egFEQhpnbtkehbAwjvDcxIERmCYcysiODFmE3Ud0Q==}
+    engines: {node: '>=18'}
 
   yuku-ast@0.19.0:
     resolution: {integrity: sha512-PyCsiScaelhxBGzL8dyeJkLqvRZycoh78R31Vrt/WqYrm0hMFoKwIw/X7Dx5mBKLWAMlV9I9HEyBOHnj2gZVyw==}
@@ -632,6 +782,8 @@ packages:
     engines: {node: '>=14.18.0'}
 
 snapshots:
+
+  '@borewit/text-codec@0.2.2': {}
 
   '@jridgewell/sourcemap-codec@1.6.0': {}
 
@@ -694,6 +846,27 @@ snapshots:
   '@oxfmt/binding-win32-x64-msvc@0.74.0':
     optional: true
 
+  '@remix-run/fetch-router@0.8.0(@remix-run/form-data-parser@0.12.0)(@remix-run/headers@0.14.0)(@remix-run/html-template@0.2.0)(@remix-run/route-pattern@0.14.0)':
+    dependencies:
+      '@remix-run/form-data-parser': 0.12.0
+      '@remix-run/headers': 0.14.0
+      '@remix-run/html-template': 0.2.0
+      '@remix-run/route-pattern': 0.14.0
+
+  '@remix-run/form-data-parser@0.12.0':
+    dependencies:
+      '@remix-run/multipart-parser': 0.12.0
+
+  '@remix-run/headers@0.14.0': {}
+
+  '@remix-run/html-template@0.2.0': {}
+
+  '@remix-run/multipart-parser@0.12.0':
+    dependencies:
+      '@remix-run/headers': 0.14.0
+
+  '@remix-run/route-pattern@0.14.0': {}
+
   '@rolldown/binding-android-arm-eabi@1.2.15':
     optional: true
 
@@ -740,6 +913,17 @@ snapshots:
     optional: true
 
   '@rolldown/pluginutils@1.0.1': {}
+
+  '@sinclair/typebox@0.34.52': {}
+
+  '@tokenizer/inflate@0.5.1':
+    dependencies:
+      debug: 4.4.3
+      token-types: 6.1.2
+    transitivePeerDependencies:
+      - supports-color
+
+  '@tokenizer/token@0.3.0': {}
 
   '@yuku-core/binding-android-arm64@0.19.0':
     optional: true
@@ -792,25 +976,69 @@ snapshots:
 
   consola@3.4.2: {}
 
+  cookie@1.1.1: {}
+
+  debug@4.4.3:
+    dependencies:
+      ms: 2.1.3
+
   defu@6.1.7: {}
 
   destr@2.0.5: {}
 
   dts-resolver@3.0.0: {}
 
+  elysia@1.4.30(@sinclair/typebox@0.34.52)(exact-mirror@1.2.6)(file-type@22.2.0)(openapi-types@12.1.3)(typescript@5.9.3):
+    dependencies:
+      '@sinclair/typebox': 0.34.52
+      cookie: 1.1.1
+      exact-mirror: 1.2.6
+      fast-decode-uri-component: 1.0.1
+      file-type: 22.2.0
+      memoirist: 0.4.0
+      openapi-types: 12.1.3
+    optionalDependencies:
+      typescript: 5.9.3
+
+  exact-mirror@1.2.6: {}
+
   exsolve@1.1.3: {}
+
+  fast-decode-uri-component@1.0.1: {}
 
   fdir@6.5.0(picomatch@4.0.7):
     optionalDependencies:
       picomatch: 4.0.7
 
+  file-type@22.2.0:
+    dependencies:
+      '@tokenizer/inflate': 0.5.1
+      strtok3: 10.6.2
+      token-types: 6.1.2
+      uint8array-extras: 1.6.0
+    transitivePeerDependencies:
+      - supports-color
+
   get-tsconfig@5.0.0-beta.6:
     dependencies:
       resolve-pkg-maps: 1.0.0
 
+  h3@2.0.8:
+    dependencies:
+      rou3: 1.0.0
+      srvx: 1.0.6
+
+  hono@4.13.13: {}
+
+  ieee754@1.2.1: {}
+
   magic-string@1.4.3:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.6.0
+
+  memoirist@0.4.0: {}
+
+  ms@2.1.3: {}
 
   nf3@0.4.2: {}
 
@@ -839,6 +1067,8 @@ snapshots:
       - oxc-resolver
       - typescript
       - vue-tsc
+
+  openapi-types@12.1.3: {}
 
   oxfmt@0.74.0:
     dependencies:
@@ -916,6 +1146,14 @@ snapshots:
       '@rolldown/binding-win32-arm64-msvc': 1.2.15
       '@rolldown/binding-win32-x64-msvc': 1.2.15
 
+  rou3@1.0.0: {}
+
+  srvx@1.0.6: {}
+
+  strtok3@10.6.2:
+    dependencies:
+      '@tokenizer/token': 0.3.0
+
   tinyglobby@0.2.17:
     dependencies:
       fdir: 6.5.0(picomatch@4.0.7)
@@ -923,7 +1161,15 @@ snapshots:
 
   tinypool@2.2.0: {}
 
+  token-types@6.1.2:
+    dependencies:
+      '@borewit/text-codec': 0.2.2
+      '@tokenizer/token': 0.3.0
+      ieee754: 1.2.1
+
   typescript@5.9.3: {}
+
+  uint8array-extras@1.6.0: {}
 
   yuku-ast@0.19.0:
     dependencies:

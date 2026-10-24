@@ -1,1 +1,6 @@
-{ "extends": "@robino/tsconfig/tsc.json" }
+{
+	"extends": "../../tsconfig.json",
+	"include": ["src", "*.mjs"],
+	// Framework examples sketch adoption: they assign `~standard` onto contexts that don't declare it (yet).
+	"exclude": ["src/example/framework"]
+}

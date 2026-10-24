@@ -1,44 +1,38 @@
 {
 	"name": "standard-middleware",
-	"description": "Standard Middleware for JavaScript Servers",
 	"version": "0.0.3",
+	"description": "Standard Middleware for JavaScript Servers",
 	"license": "MIT",
-	"type": "module",
-	"types": "./dist/index.d.ts",
-	"main": "./dist/index.js",
-	"exports": {
-		"./package.json": {
-			"default": "./package.json"
-		},
-		".": {
-			"types": "./dist/index.d.ts",
-			"default": "./dist/index.js"
-		}
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/standard-servers/proposals.git",
+		"directory": "packages/standard-middleware"
 	},
 	"files": [
-		"./dist/index.js",
-		"./dist/index.d.ts",
-		"./dist/index.d.ts.map",
-		"./src/index.ts"
+		"dist"
 	],
+	"type": "module",
+	"main": "./dist/index.mjs",
+	"types": "./dist/index.d.mts",
+	"exports": {
+		"./package.json": "./package.json",
+		".": {
+			"types": "./dist/index.d.mts",
+			"default": "./dist/index.mjs"
+		}
+	},
 	"scripts": {
+		"build": "obuild",
 		"check": "tsc --noEmit",
-		"dev": "tsc --watch",
-		"build": "tsc",
-		"format": "prettier --write .",
-		"example": "bun run build && bun dist/example"
+		"example": "bun src/example/index.ts"
+	},
+	"dependencies": {
+		"standard-context": "workspace:^"
 	},
 	"devDependencies": {
 		"@remix-run/fetch-router": "^0.8.0",
-		"@robino/prettier": "^2.0.2",
-		"@robino/tsconfig": "^1.1.0",
 		"elysia": "^1.4.15",
 		"h3": "^2.0.1-rc.5",
-		"hono": "^4.10.5",
-		"prettier": "^3.6.2",
-		"typescript": "^5.9.3"
-	},
-	"dependencies": {
-		"standard-context": "^0.0.4"
+		"hono": "^4.10.5"
 	}
 }

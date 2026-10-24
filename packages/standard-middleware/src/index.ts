@@ -10,9 +10,7 @@ import type { StandardContext } from "standard-context";
  * @param args Optional arguments passed into `next`.
  * @returns Promise that resolves when the next middleware has executed.
  */
-export type StandardNext<Args extends unknown[] = [], T = unknown> = (
-	...args: Args
-) => Promise<T>;
+export type StandardNext<Args extends unknown[] = [], T = unknown> = (...args: Args) => Promise<T>;
 
 /**
  * The Standard Middleware type.

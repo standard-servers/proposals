@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "Preserve",
+		"moduleDetection": "force",
+		"lib": ["ESNext", "DOM"],
+		"strict": true,
+		"skipLibCheck": true,
+		"verbatimModuleSyntax": true,
+		"exactOptionalPropertyTypes": true,
+		"noUncheckedIndexedAccess": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noEmit": true,
+		"paths": {
+			"standard-context": ["./packages/standard-context/src/index.ts"]
+		}
+	},
+	"include": ["scripts"]
+}

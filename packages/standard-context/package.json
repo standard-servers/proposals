@@ -3,6 +3,11 @@
 	"version": "0.0.6",
 	"description": "Standard Context for JavaScript Servers",
 	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/standard-servers/proposals.git",
+		"directory": "packages/standard-context"
+	},
 	"files": [
 		"dist"
 	],
@@ -18,14 +23,6 @@
 	},
 	"scripts": {
 		"build": "obuild",
-		"check": "tsc --noEmit",
-		"format": "pnpm readme && oxfmt",
-		"readme": "node scripts/readme.ts"
-	},
-	"devDependencies": {
-		"obuild": "^0.4.45",
-		"oxfmt": "^0.74.0",
-		"typescript": "^5.9.3"
-	},
-	"packageManager": "pnpm@12.15.0"
+		"check": "tsc --noEmit"
+	}
 }

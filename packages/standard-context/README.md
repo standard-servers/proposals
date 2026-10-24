@@ -108,4 +108,4 @@ std.res = { status: 404, body: "Not Found", headers: std.res.headers };
 
 ## Example
 
-See complete example in [`standard-middleware`](https://github.com/h3js/standard-middleware/tree/main/src/example) repository.
+See complete example in [`standard-middleware`](https://github.com/standard-servers/proposals/tree/main/packages/standard-middleware/src/example).

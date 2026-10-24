@@ -12,7 +12,7 @@ type Middleware = StandardMiddleware<Context, Next, void>;
 class Context implements StandardContext {
 	req: Request;
 	body: BodyInit | null = null;
-	status?: number;
+	status = 200;
 	headers = new Headers();
 	"~standard": StandardContext.Props;
 

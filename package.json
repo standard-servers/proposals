@@ -1,0 +1,17 @@
+{
+	"name": "standard-servers-proposals",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "pnpm -r build",
+		"check": "pnpm -r check",
+		"format": "pnpm readme && oxfmt",
+		"readme": "node scripts/readme.ts"
+	},
+	"devDependencies": {
+		"obuild": "^0.4.45",
+		"oxfmt": "^0.74.0",
+		"typescript": "^5.9.3"
+	},
+	"packageManager": "pnpm@12.15.0"
+}
