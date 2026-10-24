@@ -1,7 +1,7 @@
 /**
  * The Standard Context type.
  *
- * @template C Type of the vendor defined `context` or `event`.
+ * @template C Type of the framework defined `context` or `event`.
  * @template R Type of the JavaScript runtime.
  * @template W Return type of `waitUntil`.
  */
@@ -18,12 +18,16 @@ export declare namespace StandardContext {
 	 * @template W Return type of `waitUntil`.
 	 */
 	export interface Props<R = unknown, W = unknown> {
-		/** The vendor name of the server framework library. */
-		readonly vendor: string;
+		/** The name of the server framework. */
+		readonly framework: string;
 		/** Incoming web `Request`. */
 		readonly req: Request;
-		/** Prepared response modifiers. */
-		readonly res: PreparedResponse;
+		/**
+		 * Prepared response.
+		 *
+		 * Its fields are not guaranteed to be writable. Assign a new object to replace it.
+		 */
+		res: PreparedResponse;
 		/**
 		 * JavaScript runtime specific data.
 		 *
@@ -42,13 +46,19 @@ export declare namespace StandardContext {
 		readonly waitUntil?: (promise: Promise<any>) => W;
 	}
 
-	/** The Prepared Response properties interface. */
+	/**
+	 * The Prepared Response properties interface.
+	 *
+	 * Fields are readonly so that a standard `Response` (whose properties are readonly) is a valid value.
+	 *
+	 * Frameworks may optionally provide a mutable object, but portable code should not rely on it.
+	 */
 	export interface PreparedResponse {
 		/** `Response` body. */
-		body?: BodyInit | null;
+		readonly body?: BodyInit | null;
 		/** `Response` status code. */
-		status?: number;
+		readonly status?: number;
 		/** `Response` headers. */
-		headers?: Headers;
+		readonly headers?: Headers;
 	}
 }

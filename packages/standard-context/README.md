@@ -20,7 +20,7 @@ Inspired by [`standard-schema`](https://standardschema.dev), this proposes a `St
 /**
  * The Standard Context type.
  *
- * @template C Type of the vendor defined `context` or `event`.
+ * @template C Type of the framework defined `context` or `event`.
  * @template R Type of the JavaScript runtime.
  * @template W Return type of `waitUntil`.
  */
@@ -37,12 +37,16 @@ export declare namespace StandardContext {
 	 * @template W Return type of `waitUntil`.
 	 */
 	export interface Props<R = unknown, W = unknown> {
-		/** The vendor name of the server framework library. */
-		readonly vendor: string;
+		/** The name of the server framework. */
+		readonly framework: string;
 		/** Incoming web `Request`. */
 		readonly req: Request;
-		/** Prepared response modifiers. */
-		readonly res: PreparedResponse;
+		/**
+		 * Prepared response.
+		 *
+		 * Its fields are not guaranteed to be writable. Assign a new object to replace it.
+		 */
+		res: PreparedResponse;
 		/**
 		 * JavaScript runtime specific data.
 		 *
@@ -61,14 +65,20 @@ export declare namespace StandardContext {
 		readonly waitUntil?: (promise: Promise<any>) => W;
 	}
 
-	/** The Prepared Response properties interface. */
+	/**
+	 * The Prepared Response properties interface.
+	 *
+	 * Fields are readonly so that a standard `Response` (whose properties are readonly) is a valid value.
+	 *
+	 * Frameworks may optionally provide a mutable object, but portable code should not rely on it.
+	 */
 	export interface PreparedResponse {
 		/** `Response` body. */
-		body?: BodyInit | null;
+		readonly body?: BodyInit | null;
 		/** `Response` status code. */
-		status?: number;
+		readonly status?: number;
 		/** `Response` headers. */
-		headers?: Headers;
+		readonly headers?: Headers;
 	}
 }
 ````
@@ -81,13 +91,20 @@ Just like `standard-schema`, the type adds an additional `~standard` property to
 
 Library authors can also add additional information such as the `runtime` or a `waitUntil` method.
 
-This allows vendor server framework libraries to adopt the type without any breaking changes.
+This allows server frameworks to adopt the type without any breaking changes.
 
 ## `PreparedResponse`
 
 Each server framework provides a variety of different methods for users to update the final `Response`.
 
-`StandardContext.res` is a `PreparedResponse`, this is an object containing getter and setter methods to modify the final response sent from the server.
+`StandardContext.res` is a `PreparedResponse`, an object describing the final response sent from the server (`body`, `status` and `headers`).
+
+Its fields are readonly, since in some frameworks (like Hono) it is a standard `Response`. Other frameworks may optionally provide a mutable object, but portable code should not rely on it. To change the response, assign a new object to `res` (the `headers` object can still be mutated in place):
+
+```ts
+const std = ctx["~standard"];
+std.res = { status: 404, body: "Not Found", headers: std.res.headers };
+```
 
 ## Example
 
