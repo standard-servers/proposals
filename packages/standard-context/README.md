@@ -41,8 +41,12 @@ export declare namespace StandardContext {
 		readonly framework: string;
 		/** Incoming web `Request`. */
 		readonly req: Request;
-		/** Prepared response modifiers. */
-		readonly res: PreparedResponse;
+		/**
+		 * Prepared response.
+		 *
+		 * Its fields are not guaranteed to be writable. Assign a new object to replace it.
+		 */
+		res: PreparedResponse;
 		/**
 		 * JavaScript runtime specific data.
 		 *
@@ -61,14 +65,20 @@ export declare namespace StandardContext {
 		readonly waitUntil?: (promise: Promise<any>) => W;
 	}
 
-	/** The Prepared Response properties interface. */
+	/**
+	 * The Prepared Response properties interface.
+	 *
+	 * Fields are readonly so that a standard `Response` (whose properties are readonly) is a valid value.
+	 *
+	 * Frameworks may optionally provide a mutable object, but portable code should not rely on it.
+	 */
 	export interface PreparedResponse {
 		/** `Response` body. */
-		body?: BodyInit | null;
+		readonly body?: BodyInit | null;
 		/** `Response` status code. */
-		status?: number;
+		readonly status?: number;
 		/** `Response` headers. */
-		headers?: Headers;
+		readonly headers?: Headers;
 	}
 }
 ````
@@ -87,7 +97,14 @@ This allows server frameworks to adopt the type without any breaking changes.
 
 Each server framework provides a variety of different methods for users to update the final `Response`.
 
-`StandardContext.res` is a `PreparedResponse`, this is an object containing getter and setter methods to modify the final response sent from the server.
+`StandardContext.res` is a `PreparedResponse`, an object describing the final response sent from the server (`body`, `status` and `headers`).
+
+Its fields are readonly, since in some frameworks (like Hono) it is a standard `Response`. Other frameworks may optionally provide a mutable object, but portable code should not rely on it. To change the response, assign a new object to `res` (the `headers` object can still be mutated in place):
+
+```ts
+const std = ctx["~standard"];
+std.res = { status: 404, body: "Not Found", headers: std.res.headers };
+```
 
 ## Example
 
